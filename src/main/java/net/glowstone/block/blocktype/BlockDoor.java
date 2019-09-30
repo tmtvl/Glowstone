@@ -43,12 +43,12 @@ public class BlockDoor extends BlockType {
             if (door.isTopHalf()) {
                 Block b = block.getRelative(BlockFace.DOWN);
                 if (b.getState().getData() instanceof Door) {
-                    b.setType(Material.AIR);
+		    b.setBlockData(Material.AIR.createBlockData());
                 }
             } else {
                 Block b = block.getRelative(BlockFace.UP);
                 if (b.getState().getData() instanceof Door) {
-                    b.setType(Material.AIR);
+		    b.setBlockData(Material.AIR.createBlockData());
                 }
             }
         }

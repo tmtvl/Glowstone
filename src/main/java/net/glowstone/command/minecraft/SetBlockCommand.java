@@ -68,7 +68,7 @@ public class SetBlockCommand extends GlowVanillaCommand {
                 }
             }
         }
-        block.setType(type, dataValue, true);
+        block.setBlockData(type.createBlockData(String.valueOf(dataValue)));
         if (args.length > 5 && block.getBlockEntity() != null) {
             String dataTag = String
                     .join(" ", new ArrayList<>(Arrays.asList(args)).subList(5, args.length));

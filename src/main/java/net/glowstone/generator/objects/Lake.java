@@ -98,7 +98,7 @@ public class Lake implements TerrainObject {
                             type = Material.ICE;
                         }
                     }
-                    block.setType(type);
+                    block.setBlockData(type.createBlockData());
                 }
             }
         }
@@ -114,7 +114,7 @@ public class Lake implements TerrainObject {
                     if (block.getType() == Material.DIRT
                             && !blockAbove.getType().isOccluding()
                             && blockAbove.getLightLevel() > 0) {
-                        block.setType(mycelBiome ? Material.MYCELIUM : Material.GRASS_BLOCK);
+                        block.setBlockData(mycelBiome ? Material.MYCELIUM.createBlockData() : Material.GRASS_BLOCK.createBlockData());
                     }
                 }
             }

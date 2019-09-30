@@ -26,7 +26,7 @@ public class BlockPattern {
             if (matches != null) {
                 if (clear) {
                     for (Location match : matches) {
-                        match.getBlock().setType(Material.AIR);
+                        match.getBlock().setBlockData(Material.AIR.createBlockData());
                     }
                 }
                 return true;

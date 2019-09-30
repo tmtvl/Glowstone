@@ -20,7 +20,7 @@ public class BucketDispenseBehavior extends DefaultDispenseBehavior {
         GlowBlock target = block.getRelative(facing);
 
         if (canPlace(target, facing, stack)) {
-            target.setType(liquid.getMaterial());
+            target.setBlockData(liquid.getMaterial().createBlockData());
             stack.setType(Material.BUCKET);
             stack.setAmount(1);
             return stack;

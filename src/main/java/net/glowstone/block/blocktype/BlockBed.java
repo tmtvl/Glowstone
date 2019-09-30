@@ -123,7 +123,7 @@ public class BlockBed extends BlockType {
                                    Material oldType, byte oldData, Material newType, byte newData) {
         if (changedBlock.equals(getHead(block)) || changedBlock.equals(getFoot(block))) {
             if (newType == Material.AIR) {
-                block.setType(Material.AIR);
+		block.setBlockData(Material.AIR.createBlockData());
             }
         }
     }
@@ -286,7 +286,7 @@ public class BlockBed extends BlockType {
         bed.update(true);
         BlockFace direction = ((Bed) bed.getData()).getFacing();
         GlowBlock headBlock = block.getRelative(direction);
-        headBlock.setType(type);
+	headBlock.setBlockData(type.createBlockData());
         GlowBed headBlockState = (GlowBed) headBlock.getState();
         headBlockState.setColor(DyeColor.getByWoolData(holding.getData().getData()));
         MaterialData data = headBlockState.getData();

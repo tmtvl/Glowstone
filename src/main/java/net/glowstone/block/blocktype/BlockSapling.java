@@ -100,11 +100,11 @@ public class BlockSapling extends BlockNeedsAttached implements IBlockGrowable {
         int data = block.getData() & 0x7;
 
         // replaces the sapling block(s)
-        block.setType(Material.AIR);
+        block.setBlockData(Material.AIR.createBlockData());
         if (type == TreeType.JUNGLE || type == TreeType.MEGA_REDWOOD || type == TreeType.DARK_OAK) {
-            block.getRelative(BlockFace.SOUTH).setType(Material.AIR);
-            block.getRelative(BlockFace.EAST).setType(Material.AIR);
-            block.getRelative(BlockFace.SOUTH_EAST).setType(Material.AIR);
+            block.getRelative(BlockFace.SOUTH).setBlockData(Material.AIR.createBlockData());
+            block.getRelative(BlockFace.EAST).setBlockData(Material.AIR.createBlockData());
+            block.getRelative(BlockFace.SOUTH_EAST).setBlockData(Material.AIR.createBlockData());
         }
 
         // try to generate a tree
@@ -130,15 +130,15 @@ public class BlockSapling extends BlockNeedsAttached implements IBlockGrowable {
             // the sapling ages are overwritten but this is an expected
             // vanilla behavior
             // TODO: 1.13 sapling types
-            block.setType(Material.LEGACY_SAPLING);
+            block.setBlockData(Material.LEGACY_SAPLING.createBlockData());
             block.setData((byte) data);
             if (type == TreeType.JUNGLE || type == TreeType.MEGA_REDWOOD
                 || type == TreeType.DARK_OAK) {
-                block.getRelative(BlockFace.SOUTH).setType(Material.LEGACY_SAPLING);
+                block.getRelative(BlockFace.SOUTH).setBlockData(Material.LEGACY_SAPLING.createBlockData());
                 block.getRelative(BlockFace.SOUTH).setData((byte) data);
-                block.getRelative(BlockFace.EAST).setType(Material.LEGACY_SAPLING);
+                block.getRelative(BlockFace.EAST).setBlockData(Material.LEGACY_SAPLING.createBlockData());
                 block.getRelative(BlockFace.EAST).setData((byte) data);
-                block.getRelative(BlockFace.SOUTH_EAST).setType(Material.LEGACY_SAPLING);
+                block.getRelative(BlockFace.SOUTH_EAST).setBlockData(Material.LEGACY_SAPLING.createBlockData());
                 block.getRelative(BlockFace.SOUTH_EAST).setData((byte) data);
             }
         }
@@ -190,11 +190,11 @@ public class BlockSapling extends BlockNeedsAttached implements IBlockGrowable {
                 if (data instanceof Sapling) {
                     Sapling sapling = (Sapling) data;
                     TreeType type = getTreeType(sapling.getSpecies());
-                    block.setType(Material.AIR);
+                    block.setBlockData(Material.AIR.createBlockData());
                     int saplingData = block.getData() & 0x7;
                     if (!block.getWorld().generateTree(block.getLocation(), type)) {
                         // TODO: 1.13 sapling types
-                        block.setType(Material.LEGACY_SAPLING);
+                        block.setBlockData(Material.LEGACY_SAPLING.createBlockData());
                         block.setData((byte) saplingData);
                     }
                 } else {

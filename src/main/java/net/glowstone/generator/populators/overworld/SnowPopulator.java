@@ -35,14 +35,14 @@ public class SnowPopulator extends BlockPopulator {
                         case LAVA:
                             break;
                         case DIRT:
-                            block.setType(Material.GRASS_BLOCK);
+                            block.setBlockData(Material.GRASS_BLOCK.createBlockData());
                             if (blockAbove.isEmpty()) {
-                                blockAbove.setType(Material.SNOW);
+                                blockAbove.setBlockData(Material.SNOW.createBlockData());
                             }
                             break;
                         default:
                             if (blockAbove.isEmpty()) {
-                                blockAbove.setType(Material.SNOW);
+                                blockAbove.setBlockData(Material.SNOW.createBlockData());
                             }
                             break;
                     }

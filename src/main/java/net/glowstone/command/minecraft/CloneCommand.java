@@ -197,7 +197,6 @@ public class CloneCommand extends GlowVanillaCommand {
 
             if (blockFilter.shouldClone(fromBlock)) {
                 GlowBlock toBlock = world.getBlockAt(toLocation);
-                toBlock.setType(fromBlock.getType());
                 toBlock.setBlockData(fromBlock.getBlockData());
 
                 BlockEntity fromEntity = fromBlock.getBlockEntity();
@@ -213,7 +212,7 @@ public class CloneCommand extends GlowVanillaCommand {
                 }
 
                 if (cloneMode == CloneMode.MOVE) {
-                    fromBlock.setType(Material.AIR, false);
+                    fromBlock.setBlockData(Material.AIR.createBlockData());
                 }
 
                 blocksCloned++;

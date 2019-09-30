@@ -92,7 +92,7 @@ public class ItemBucket extends ItemType {
                 }
             }
 
-            target.setType(Material.AIR);
+            target.setBlockData(Material.AIR.createBlockData());
         }
     }
 }

@@ -501,7 +501,7 @@ public class GlowBlock implements Block {
         drops.stream().filter(stack -> ThreadLocalRandom.current().nextFloat() < yield)
                 .forEach(stack -> getWorld().dropItemNaturally(location, stack));
 
-        setType(Material.AIR);
+	setBlockData(Material.AIR.createBlockData());
         return true;
     }
 

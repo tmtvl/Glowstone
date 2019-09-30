@@ -15,7 +15,7 @@ public class BlockDaylightDetector extends BlockType {
         if (block.getType() == Material.DAYLIGHT_DETECTOR) {
             //block.setType(Material.DAYLIGHT_DETECTOR_INVERTED);
         } else {
-            block.setType(Material.DAYLIGHT_DETECTOR);
+	    block.setBlockData(Material.DAYLIGHT_DETECTOR.createBlockData());
         }
         return true;
     }

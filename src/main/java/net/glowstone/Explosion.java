@@ -260,7 +260,7 @@ public final class Explosion {
             return;
         }
 
-        block.setType(Material.FIRE);
+	block.setBlockData(Material.FIRE.createBlockData());
     }
 
     /////////////////////////////////////////

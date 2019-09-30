@@ -180,7 +180,7 @@ public abstract class BlockLiquid extends BlockType {
         }
         // flow to the target
         GlowBlock toBlock = (GlowBlock) fromToEvent.getToBlock();
-        toBlock.setType(fromToEvent.getBlock().getType(), strength, false);
+        toBlock.setBlockData(fromToEvent.getBlock().getType().createBlockData(String.valueOf(strength)));
         toBlock.getWorld().requestPulse(toBlock);
     }
 
@@ -188,18 +188,18 @@ public abstract class BlockLiquid extends BlockType {
         Material targetMaterial) {
         if (flowingMaterial == Material.WATER && targetMaterial == Material.LAVA) {
             if (target.getState().getRawData() == STRENGTH_SOURCE) {
-                target.setType(Material.OBSIDIAN);
+                target.setBlockData(Material.OBSIDIAN.createBlockData());
             } else if (direction == DOWN) {
-                target.setType(Material.COBBLESTONE);
+                target.setBlockData(Material.COBBLESTONE.createBlockData());
             }
         }
         if (flowingMaterial == Material.LAVA && (targetMaterial == Material.WATER)) {
             if (direction == DOWN) {
-                target.setType(Material.STONE);
+                target.setBlockData(Material.STONE.createBlockData());
             }
             if (direction == NORTH || direction == SOUTH || direction == EAST
                 || direction == WEST) {
-                target.setType(Material.COBBLESTONE);
+                target.setBlockData(Material.COBBLESTONE.createBlockData());
             }
         }
     }
@@ -232,12 +232,12 @@ public abstract class BlockLiquid extends BlockType {
                     }
                     if (me.getWorld().getServer().getClassicWater()
                         && me.getRelative(face).getState().getRawData() == STRENGTH_SOURCE) {
-                        me.getRelative(face).setType(Material.AIR);
+                        me.getRelative(face).setBlockData(Material.AIR.createBlockData());
                     }
                 }
             }
             if (!connected) {
-                me.setType(Material.AIR);
+                me.setBlockData(Material.AIR.createBlockData());
                 return;
             }
             if (count == 2) {

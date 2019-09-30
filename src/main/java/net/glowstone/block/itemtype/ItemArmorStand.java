@@ -35,8 +35,8 @@ public class ItemArmorStand extends ItemType {
             && loc.getWorld().getNearbyEntities(loc.clone().add(0, 0.5, 0), 0.5, 0.5, 0.5).isEmpty()
             && loc.getWorld().getNearbyEntities(loc.clone().add(0, 1.5, 0), 0.5, 0.5, 0.5)
             .isEmpty()) {
-            newTarget.setType(Material.AIR);
-            upper.setType(Material.AIR);
+            newTarget.setBlockData(Material.AIR.createBlockData());
+            upper.setBlockData(Material.AIR.createBlockData());
             float yaw = player.getLocation().getYaw();
             float finalYaw = Math.round(yaw / 22.5f / 2) * 45;
             loc.setYaw(finalYaw - 180);

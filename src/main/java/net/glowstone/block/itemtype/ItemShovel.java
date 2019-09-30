@@ -19,7 +19,7 @@ public class ItemShovel extends ItemTool {
             target.getWorld()
                 .playSound(target.getLocation().add(0.5D, 0.5D, 0.5D), Sound.BLOCK_GRAVEL_STEP,
                     1, 0.8F);
-            target.setType(Material.GRASS_PATH);
+            target.setBlockData(Material.GRASS_PATH.createBlockData());
             return true;
         }
         return false;

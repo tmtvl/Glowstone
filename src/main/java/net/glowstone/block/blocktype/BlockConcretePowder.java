@@ -21,7 +21,7 @@ public class BlockConcretePowder extends BlockFalling {
                         || face == BlockFace.UP
                         || face == BlockFace.DOWN)
                 && other.isLiquid()) {
-            me.setType(Material.LEGACY_CONCRETE);
+	    me.setBlockData(Material.LEGACY_CONCRETE.createBlockData());
         } else {
             super.onNearBlockChanged(me, face, other, oldType, oldData, newType, newData);
         }
@@ -32,7 +32,7 @@ public class BlockConcretePowder extends BlockFalling {
         byte data) {
         for (BlockFace face : ADJACENT) {
             if (block.getRelative(face).isLiquid()) {
-                block.setType(Material.LEGACY_CONCRETE);
+		block.setBlockData(Material.LEGACY_CONCRETE.createBlockData());
             }
         }
     }
